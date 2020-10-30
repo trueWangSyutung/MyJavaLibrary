@@ -1,1 +1,1 @@
-MyKU
+MyJavalibrary
