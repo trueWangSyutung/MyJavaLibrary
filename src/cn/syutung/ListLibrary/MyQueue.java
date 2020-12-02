@@ -1,4 +1,4 @@
-package cn.syutung.Library;
+package cn.syutung.ListLibrary;
 
 import java.util.Arrays;
 
@@ -60,16 +60,25 @@ public class MyQueue<T> implements Queue<T> {
     }
 
     @Override
-    public Object dequeue() {
-        Object r = list[front];
+    public T dequeue() {
+        T r = (T)list[front];
         list[front] = null;
         front++;
         return r;
     }
-
+    public T get() {
+        return (T) list[front];
+    }
     @Override
     public boolean isEmpty() {
-        return list==null;
+        int ij =0;
+        for (Object o : list) {
+            if (o != null) {
+                ij++;
+                break;
+            }
+        }
+        return ij == 0;
     }
 
     @Override

@@ -1,5 +1,5 @@
 
-import cn.syutung.Library.Tools;
+import cn.syutung.ListLibrary.*;
 import java.util.Scanner;
 public class TestStack {
 

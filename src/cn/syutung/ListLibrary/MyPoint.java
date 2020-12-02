@@ -1,4 +1,4 @@
-package cn.syutung.Library;
+package cn.syutung.ListLibrary;
 
 public class MyPoint<T>  implements Point<T>
 {

@@ -1,4 +1,4 @@
-import cn.syutung.Library.*;
+import cn.syutung.ListLibrary.*;
 
 public class TestLinearList {
     public static void main(String[] args) {
@@ -16,6 +16,7 @@ public class TestLinearList {
         sindleList.add(5);
         System.out.println("当前长度：" + sindleList.size());
         System.out.println("当前链表：" + sindleList.toString());
+        System.out.println(sindleList.get(0));
 
         System.out.println(sindleList.get(4));
         sindleList.add(4,99);

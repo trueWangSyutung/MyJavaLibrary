@@ -1,1 +1,1 @@
-MyJavalibrary
+MyJavaLibrary

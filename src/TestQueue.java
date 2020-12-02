@@ -1,4 +1,4 @@
-import cn.syutung.Library.MyQueue;
+import cn.syutung.ListLibrary.*;
 
 public class TestQueue {
     public static void main(String[] args) {

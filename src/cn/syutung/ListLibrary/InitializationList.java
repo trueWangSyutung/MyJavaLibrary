@@ -1,4 +1,4 @@
-package cn.syutung.Library;
+package cn.syutung.ListLibrary;
 
 /***
  * @apiNote 链表类的实体类
@@ -36,6 +36,15 @@ public class InitializationList<T> implements LianList<T>{
         size = args.length;
     }
 
+
+    public int find(T key){
+        for (int i=0;i<size();i++){
+            if (get(i+1)==key){
+                return i;
+            }
+        }
+        return 0;
+    }
 
 
     /***

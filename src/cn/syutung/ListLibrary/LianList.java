@@ -1,4 +1,4 @@
-package cn.syutung.Library;
+package cn.syutung.ListLibrary;
 /***
  * @apiNote 链表类的实现接口
  * @author BISTU_Syutung

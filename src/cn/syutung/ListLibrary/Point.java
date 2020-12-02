@@ -1,4 +1,4 @@
-package cn.syutung.Library;
+package cn.syutung.ListLibrary;
 
 /***
  * @apiNote 节点类的实现接口

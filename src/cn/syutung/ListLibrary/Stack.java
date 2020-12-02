@@ -1,4 +1,4 @@
-package cn.syutung.Library;
+package cn.syutung.ListLibrary;
 
 /***
  * 栈的接口
@@ -7,9 +7,9 @@ package cn.syutung.Library;
 public interface Stack<T> {
     /***
      * 入栈
-     * @param a Object对象
+     * @param a T对象
      */
-    void push(Object a);
+    void push(T a);
 
     /***
      * 出栈

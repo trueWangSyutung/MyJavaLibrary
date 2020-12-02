@@ -1,4 +1,4 @@
-package cn.syutung.Library;
+package cn.syutung.ListLibrary;
 
 public interface Queue<T> {
     void enqueue(T ap);

@@ -1,11 +1,11 @@
-package cn.syutung.Library;
+package cn.syutung.ListLibrary;
 
 
 public class Tools {
    
     public static double sum(String StdIn){
-        MyStack<Double> numbers = new MyStack<>(5);
-        MyStack<String> yunsuanfu = new MyStack<>(5);
+        MyStack<Double> numbers = new MyStack<>();
+        MyStack<String> yunsuanfu = new MyStack<>();
         int index = 0;
         
       
@@ -31,8 +31,7 @@ public class Tools {
                     break;
 
                 case ")":
-                        Double val = numbers.pop();
-                        double result =0.0;
+                        double val = numbers.pop();
                         
                         while(!yunsuanfu.get().equals("(")){
                             String p =  yunsuanfu.pop();
@@ -78,6 +77,28 @@ public class Tools {
                     break;
             }
         }
+
+        if(!yunsuanfu.isEmpty()){
+            double val = numbers.pop();
+                        
+            while(!yunsuanfu.get().equals("(")){
+                            String p =  yunsuanfu.pop();
+                            switch (p) {
+                                case "+" ->val =val + numbers.pop();
+                                case "-" ->val = numbers.pop()-val;
+                                case "*" ->val =numbers.pop() * val;
+                                case "/" ->val =  numbers.pop() / val;
+                                case "sqrt" ->val = Math.sqrt(val);
+                                case "x" -> val =numbers.pop() * val; 
+                                default -> val = val;
+                            };
+                        }
+                        yunsuanfu.pop();
+                        numbers.push(val);
+        }else{
+            
+        }
+
         return numbers.pop();
         
     }
