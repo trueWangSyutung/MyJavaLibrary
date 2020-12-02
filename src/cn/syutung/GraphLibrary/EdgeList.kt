@@ -1,5 +1,6 @@
 package cn.syutung.GraphLibrary
 
+import java.lang.StringBuilder
 import java.util.*
 import kotlin.random.Random.Default.Companion
 
@@ -37,5 +38,19 @@ class EdgeList : ArrayList<Edge?>() {
             edges[j] = edges[i]
             edges[i] = temp
         }
+    }
+
+    override fun toString():String {
+        val a = StringBuilder()
+        var s = 0
+        a.append("边集：").append("\n")
+        for (edge in this){
+            if (edge != null) {
+                a.append(edge.from).append("->").append(edge.to).append("=").append(edge.weight).append("\n")
+                s+=edge.weight;
+            }
+        }
+        a.append("权值和：").append(s).append("\n")
+        return a.toString();
     }
 }

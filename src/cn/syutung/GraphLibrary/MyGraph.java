@@ -87,19 +87,19 @@ public class MyGraph<T> implements Graph<T> {
         this.points.remove(m);
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
-                if (i == m - 1 && j == m - 1) {
+                if (i == m  && j == m ) {
                     matrix[i][j] = 0;
                 }
-                if (i > m - 1 && j > m - 1) {
+                if (i > m  && j > m ) {
                     matrix[i - 1][j - 1] = matrix[i][j];
                     matrix[i][j] = 0;
-                } else if (i > m - 1 && j < m - 1) {
+                } else if (i > m  && j < m ) {
                     matrix[i - 1][j] = matrix[i][j];
                     matrix[i][j] = 0;
-                } else if (i < m - 1 && j > m - 1) {
+                } else if (i < m  && j > m ) {
                     matrix[i][j - 1] = matrix[i][j];
                     matrix[i][j] = 0;
-                } else if (i < m - 1 && j < m - 1) {
+                } else if (i < m  && j < m ) {
                     matrix[i][j] = matrix[i][j];
                 } else {
                     matrix[i][j] = 0;
@@ -148,12 +148,16 @@ public class MyGraph<T> implements Graph<T> {
                 DFS(j, visited);
                 System.out.print("]");
             }
-            j = (j + 1) % (getPointNumber());
+            if (j>=getPointNumber()-1){
+                j=0;
+            }else{
+                j++;
+            }
         } while (j != i);
         System.out.println();
     }
 
-    public void DFS(int j, boolean[] visited) {
+    private void DFS(int j, boolean[] visited) {
         System.out.print(points.get(j));
         visited[j] = true;
         for (int k = 0; k < points.size(); k++) {
@@ -228,38 +232,31 @@ public class MyGraph<T> implements Graph<T> {
 
 
 
-    public MyGraph<T> Prim() {
+    public EdgeList Prim() {
             EdgeList edgeList = new EdgeList();
-            ArrayList<Integer> edgesnum = new ArrayList<>();
-            int begin=0,end=0,weight;
-            int[] print = new int[getPointNumber()];
+            ArrayList<Integer> pointsnum = new ArrayList<>();
             boolean[] visited = new boolean[getPointNumber()];
-            for (int i = 0; i < getPointNumber(); i++) {
-                print[i] = 0;
-            }
             visited[0] = true;
-            edgesnum.add(0);
+            pointsnum.add(0);
             while (edgeList.size() < getPointNumber() ) {
                 EdgeList edges1 = new EdgeList();
-                for (Integer row:edgesnum){
+                for (Integer row : pointsnum){
                     EdgeList bak = edges.findByFrom(row);
                     for (Edge edge:bak){
                         if (!visited[edge.getTo()]){
                             edges1.add(edge);
                         }
                     }
-
                 }
                 if (edges1.isEmpty()){
                     break;
                 }
                 edges1.sort();
                 visited[edges1.get(0).getTo()] = true;
-
                 edgeList.add(edges1.get(0));
-                edgesnum.add(edges1.get(0).getTo());
+                pointsnum.add(edges1.get(0).getTo());
             }
-        return new MyGraph<>(points,edgeList,false);
+        return edgeList;
     }
 
 }

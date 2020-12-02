@@ -10,6 +10,7 @@ public class TestGraph {
 
 
     public static void main(String[] args) {
+        test2();
         test3();
 
     }
@@ -60,7 +61,9 @@ public class TestGraph {
         //System.out.println(q.getEdges());
         q.DFS(0);
         q.BFS(0);
-        System.out.println(q.Prim().toString());
+        q.removePoint(6);
+        q.removePoint(5);
+        System.out.println(q.toString());
 
     }
     public static void test3() {
@@ -85,9 +88,7 @@ public class TestGraph {
         System.out.println(q.Prim().toString());
         //System.out.println(q.Prim().Prim().toString());
 
-
-    }
-
+        }
 
 
     }
